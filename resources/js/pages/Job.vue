@@ -5,17 +5,21 @@
         <BarLoader />
     </div>
     <transition name="fade">
-        <div v-if="job">
+        <div v-if="job" class="flex flex-col lg:flex-row">
+          <div class="w-full lg:w-2/3">
             <JobView :job="job" :setJobMaster="this.setJobMaster" :addComment="this.addComment" :deleteComment="this.deleteComment" :newStatusChange="this.newStatusChange" />
+          </div>
+          <div class="w-full mt-6 lg:w-1/3">  
             <Activity :activities="job.activities" />
+          </div>
         </div>
     </transition>
   </div>
 </template>
 
 <script>
-import JobView from './JobView'
-import Activity from './Activity'
+import JobView from '../components/Job/JobView'
+import Activity from '../components/Job/Activity'
 
 export default {
   name: "job",

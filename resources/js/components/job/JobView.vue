@@ -11,7 +11,7 @@
         <p class="mr-4 text-lg text-gray-600">Updated: {{ job.updated_at | moment('from', 'now') }}</p>
       </div>
       <div class="flex mt-4 mb-4">
-          <select v-on:change="newStatusChangeInternal()" v-model="new_status" class="p-2 text-lg font-semibold text-white bg-blue-400 border border-gray-600 border-solid rounded-md">
+          <select v-on:change="newStatusChangeInternal()" v-model="new_status" class="p-2 text-lg font-semibold text-white bg-blue-400 border border-gray-400 border-solid rounded-md">
               <option>Select new status</option>
               <option v-for="status in statuses" :key="status.key" :value="status.key">
                   {{ status.value }}
@@ -22,14 +22,18 @@
         <button v-on:click="customer_modal_open = true" class="px-4 py-2 mr-4 font-semibold text-gray-600 border border-gray-400 border-solid rounded-md cursor-pointer">View customer info</button>
         <button v-on:click="notify_customer_modal_open = true" class="px-4 py-2 mr-6 font-semibold text-gray-600 border border-gray-400 border-solid rounded-md cursor-pointer" v-if="job.status==='Ready for pickup'">Notify customer</button>
       </div>
+      <p class="mt-6 text-lg font-semibold leading-5">Job information:</p>
+      <div class="p-4 mt-2 mb-2 border border-gray-300 border-solid rounded-sm">
+        <p>{{ job.specification }}</p>
+      </div>
       <div class="mt-6">
-        <p class="mb-2 text-xl text-gray-800">Comments</p>
+        <p class="mb-2 text-lg font-semibold leading-5 text-gray-800">Comments</p>
         <div v-for="comment in job.comments" :key="comment.id">
           <div class="p-6 mb-2 bg-blue-300 rounded-sm">
             <p class="font-bold text-blue-800">{{ comment.comment }}</p>
-            <p class="text-blue-800">
+            <p class="text-right text-blue-800">
               {{ comment.created_at | moment('from', 'now') }} |
-              <span class="px-2 py-px font-semibold text-white bg-blue-700 cursor-pointer" v-on:click="deleteCommentInternal(comment.id)">Delete</span>
+              <span class="font-semibold text-blue-800 underline cursor-pointer" v-on:click="deleteCommentInternal(comment.id)">Delete</span>
             </p>
           </div>
         </div>
@@ -84,6 +88,10 @@ export default {
                 key:"ready-for-pickup",
                 value: "Ready for pickup"
             },
+            {
+              key:"complete",
+              value: "Complete"
+            }
         ],
         new_status: 'Select new status'
       }
@@ -108,6 +116,8 @@ export default {
           return "bg-red-200 text-red-700";
         case "Ready for pickup":
           return "bg-green-200 text-green-700";
+        case "Complete":
+          return "bg-green-200 text-green-700"
         default:
           break;
       }

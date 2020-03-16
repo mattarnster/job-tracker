@@ -17,7 +17,8 @@ class Job extends Migration
             $table->id();
             $table->string('name');
             $table->unsignedInteger('customer_id');
-            $table->enum('status', ['received', 'in-progress', 'waiting-customer', 'waiting-supplier', 'ready-for-pickup']);
+            $table->enum('status', ['received', 'in-progress', 'waiting-customer', 'waiting-supplier', 'ready-for-pickup', 'complete']);
+            $table->text('specification')->nullable();
             $table->string('assigned_to')->nullable();
             $table->string('token')->nullable();
             $table->timestamps();

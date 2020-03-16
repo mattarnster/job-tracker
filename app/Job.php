@@ -29,6 +29,8 @@ class Job extends Model
                 return "Waiting on supplier";
             case "ready-for-pickup":
                 return "Ready for pickup";
+            case "complete":
+                return "Complete";
         }
     }
 

@@ -27,6 +27,9 @@
                 <li class="mr-1">
                     <a v-bind:class="getActiveFilterClass('Ready for pickup')" v-on:click="status='Ready for pickup'" class="inline-block py-2 font-semibold lg:px-4" href="#">Ready</a>
                 </li>
+                <li class="mr-1">
+                    <a v-bind:class="getActiveFilterClass('Complete')" v-on:click="status='Complete'" class="inline-block py-2 font-semibold lg:px-4" href="#">Complete</a>
+                </li>
             </ul>
 
             <div class="flex justify-center w-full pt-4 pb-4" v-if="!jobs">
@@ -107,7 +110,8 @@ export default {
                 case "In progress": return "bg-blue-200 text-blue-700"
                 case "Waiting on customer": return "bg-red-200 text-red-700"
                 case "Waiting on supplier": return "bg-red-200 text-red-700"
-                case "Ready for pickup": return "bg-green-200 text-green-700" 
+                case "Ready for pickup": return "bg-green-200 text-green-700"
+                case "Complete": return "bg-green-200 text-green-700"
                 default:
                     break;
             }
@@ -119,6 +123,7 @@ export default {
                 case "Waiting on customer": return "border-red-500 border-l-8 border-solid"
                 case "Waiting on supplier": return "border-red-500 border-l-8 border-solid" 
                 case "Ready for pickup": return "border-green-500 border-l-8 border-solid"
+                case "Complete": return "border-green-500 border-l-8 border-solid"
             }
         },
         getJobStatusCount: function(status) {

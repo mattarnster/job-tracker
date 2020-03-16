@@ -8,11 +8,12 @@ Vue.use(VueRouter)
 Vue.use(require('vue-moment'))
 Vue.use(VueSpinners)
 
-import App from '../views/App'
-import Home from '../views/Home'
-import Jobs from '../views/Jobs'
-import Login from '../views/Login'
-import Job from '../views/Job'
+import App from './layouts/App'
+import Home from './pages/Home'
+import Login from './pages/Login'
+import Logout from './pages/Logout'
+import Job from './pages/Job'
+import Jobs from './pages/Jobs'
 
 const router = new VueRouter({
     mode: 'history',
@@ -42,6 +43,11 @@ const router = new VueRouter({
             path: "/login",
             name: 'login',
             component: Login
+        },
+        {
+            path: "/logout",
+            name: 'logout',
+            component: Logout
         }
     ]
 })

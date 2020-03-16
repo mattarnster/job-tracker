@@ -17,7 +17,8 @@ class JobTableSeeder extends Seeder
             "name" => "Trailer Repair",
             "customer_id" => 1,
             "status" => "received",
-            "assigned_to" => 1
+            "assigned_to" => 1,
+            "specification" => "This is a specification."
         ]);
     }
 }
