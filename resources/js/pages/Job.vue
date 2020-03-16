@@ -1,8 +1,8 @@
 <template>
-  <div class="container pt-4 mx-auto">
-    <router-link :to="{ name: 'jobs' }">&lt; Back to Jobs</router-link>
+  <div class="container pt-6 mx-auto">
+    <router-link class="text-blue-600 underline text-xl" :to="{ name: 'jobs' }">&lt; Back to Jobs</router-link>
     <div class="flex justify-center w-full pt-4 pb-4" v-if="!job">
-        <BarLoader />
+        <BarLoader color="#3182ce" />
     </div>
     <transition name="fade">
         <div v-if="job" class="flex flex-col lg:flex-row">

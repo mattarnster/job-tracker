@@ -9,9 +9,10 @@ Vue.use(require('vue-moment'))
 Vue.use(VueSpinners)
 
 import App from './layouts/App'
-import Home from './pages/Home'
 import Login from './pages/Login'
 import Logout from './pages/Logout'
+import Home from './pages/Home'
+import Users from './pages/Users'
 import Job from './pages/Job'
 import Jobs from './pages/Jobs'
 
@@ -22,6 +23,11 @@ const router = new VueRouter({
             path: '/',
             name: 'home',
             component: Home
+        },
+        {
+            path: '/users',
+            name: 'users',
+            component: Users
         },
         {
             path: '/jobs',

@@ -18,6 +18,10 @@ Route::middleware('auth:airlock')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::middleware('auth:airlock')->get('/users', function (Request $request) {
+   return response()->json(App\User::all()); 
+});
+
 Route::post('/login', 'LoginController@authenticate');
 
 Route::middleware('auth:airlock')->get('/jobs', function (Request $request) {

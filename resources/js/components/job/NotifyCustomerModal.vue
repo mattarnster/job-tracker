@@ -11,7 +11,7 @@
     >
     <div v-if="submitting" class="fixed inset-0 transition-opacity">
       <div class="absolute inset-0 flex mx-auto my-auto bg-gray-500 opacity-75 ">
-        <GridLoader class="m-auto" color='#38a169'/>
+        <GridLoader class="m-auto" color="#3182ce" />
       </div>
     </div>
       <div class="px-4 pt-5 pb-4 bg-white sm:p-6 sm:pb-4">

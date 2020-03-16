@@ -33,7 +33,7 @@
             </ul>
 
             <div class="flex justify-center w-full pt-4 pb-4" v-if="!jobs">
-                <BarLoader />
+                <BarLoader color="#3182ce" />
             </div>
             
             <transition name="fade">
