@@ -21,7 +21,7 @@
     },
     "dependencies": {
         "@saeris/vue-spinners": "^1.0.8",
-        "moment": "^2.24.0",
+        "moment": "^2.29.4",
         "tailwindcss": "^1.2.0",
         "vue": "^2.6.11",
         "vue-moment": "^4.1.0",
